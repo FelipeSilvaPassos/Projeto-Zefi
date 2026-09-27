@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Paleta e fonte do Zefi (viram classes como bg-ceu, text-tinta, bg-energia) */
 @theme {
   --color-ceu: #BFE6F5;
   --color-brisa: #7CC4E4;
