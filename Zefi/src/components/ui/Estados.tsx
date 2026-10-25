@@ -1,16 +1,16 @@
 import type { ReactNode } from 'react';
 import ZefiAvatar from '../zefi/ZefiAvatar';
+import Spinner from './Spinner';
 
 /** Mostrado enquanto os dados da API carregam */
 export function Carregando({ texto = 'Carregando...' }: { texto?: string }) {
   return (
     <div role="status" className="flex items-center justify-center gap-3 py-12 text-tinta/80">
-      <span className="h-6 w-6 animate-spin rounded-full border-4 border-brisa border-t-transparent motion-reduce:animate-none" />
+      <Spinner />
       {texto}
     </div>
   );
 }
-
 interface MensagemErroProps {
   mensagem: string;
   aoTentarNovamente?: () => void;
