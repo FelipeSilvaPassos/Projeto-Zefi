@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
             {/* Apresentação */}
-      <section className="bg-ceu">
+      <section className="bg-ceu/60">
         <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 md:flex-row md:py-20">
           <div className="flex-1 text-center md:text-left">
             <p className="inline-block rounded-full bg-white px-4 py-1 text-sm font-bold text-folha-escuro">
@@ -79,7 +79,7 @@ export default function Home() {
         </ol>
       </section>
             {/* Relação com o Soul Up */}
-      <section className="bg-white py-16">
+      <section className="bg-white/60 py-16">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2 md:items-center">
           <div>
             <h2 className="text-3xl font-extrabold">O que já existe no Soul Up</h2>
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* Categorias */}
-      <section className="bg-white py-16">
+      <section className="bg-white/60 py-16">
         <div className="mx-auto max-w-6xl px-4 text-center">
           <h2 className="text-3xl font-extrabold">Escolha seu vento</h2>
           <p className="mt-2 text-tinta/75">Missões em cinco categorias de impacto.</p>
