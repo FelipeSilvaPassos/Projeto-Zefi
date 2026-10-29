@@ -1,44 +1,43 @@
 
 @import "tailwindcss";
 
+
 @theme {
-  /* Paleta oficial do Zefi */
-  --color-ceu: #CDEBF4;
-  --color-brisa: #8ACDDF;
-  --color-folha: #A4C96A;
-  --color-folha-escuro: #527A3D;
-  --color-energia: #E8C875;
-  --color-tinta: #183B36;
-  --color-creme: #F8F7F1;
-  --color-papel: #FFFFFF;
-  --color-nevoa: #E8EFEB;
+  /* Identidade visual do Zefi */
+  --color-ceu: #55BDF0;
+  --color-brisa: #BFEAFF;
+  --color-azul-escuro: #168BC4;
+  --color-preto: #111111;
+  --color-branco: #FFFFFF;
+  --color-fundo: #F7FBFE;
+  --color-borda: #DCEAF2;
 
   /* Tipografia */
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "DM Sans", Arial, sans-serif;
 
-  /* Raios consistentes */
+  /* Raios */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  /* Sombra sutil com tom de tinta */
-  --shadow-soft: 0 1px 2px rgba(24, 59, 54, 0.06),
-    0 12px 32px -12px rgba(24, 59, 54, 0.18);
+  /* Sombra */
+  --shadow-soft: 0 2px 12px rgba(17, 17, 17, 0.08);
 }
+
 
 :root {
   font-family: var(--font-sans);
-  color: var(--color-tinta);
-  background: var(--color-creme);
+  color: #111111;
+  background: #FFFFFF;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-optical-sizing: auto;
   font-weight: 400;
 }
+
 
 * {
   box-sizing: border-box;
@@ -53,6 +52,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: #FFFFFF;
+  color: #111111;
 }
 
 button,
