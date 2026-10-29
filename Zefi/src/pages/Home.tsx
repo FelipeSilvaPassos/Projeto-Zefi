@@ -25,8 +25,8 @@ const CATEGORIAS: string[] = [
 export default function Home() {
   return (
     <>
-            {/* Apresentação */}
-      <section className="bg-ceu/60">
+      {/* Apresentação */}
+      <section className="bg-white">
         <div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 px-4 py-12 md:flex-row md:py-20">
           <div className="flex-1 text-center md:text-left">
             <p className="inline-block rounded-full bg-white px-4 py-1 text-sm font-bold text-folha-escuro">
@@ -78,7 +78,7 @@ export default function Home() {
           ))}
         </ol>
       </section>
-            {/* Relação com o Soul Up */}
+      {/* Relação com o Soul Up */}
       <section className="bg-white/60 py-16">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2 md:items-center">
           <div>
@@ -94,7 +94,7 @@ export default function Home() {
             <ul className="mt-4 space-y-3 text-tinta/85">
               <li>🎯 Missões recomendadas de acordo com os seus interesses</li>
               <li>💬 Um chat para contar suas ações e ganhar pontos na hora</li>
-              <li>🌬️ Um avatar que reage ao seu engajamento e te chama de volta quando você some</li>
+              <li>🌬️ Um avatar que reage ao seu engajamento e te de volta quando você some</li>
               <li>⭐ Bônus de 10% nas missões da sua categoria favorita</li>
             </ul>
           </div>
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* Categorias */}
-      <section className="bg-white/60 py-16">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 text-center">
           <h2 className="text-3xl font-extrabold">Escolha seu vento</h2>
           <p className="mt-2 text-tinta/75">Missões em cinco categorias de impacto.</p>
@@ -119,22 +119,30 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Chamada final */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="flex flex-col items-center gap-6 rounded-3xl bg-tinta px-6 py-12 text-center text-white md:flex-row md:text-left">
+        <div className="flex flex-col items-center gap-6 rounded-3xl border border-sky-100 bg-white px-6 py-12 text-center text-black shadow-sm md:flex-row md:text-left">
           <ZefiAvatar tamanho="medio" />
+
           <div className="flex-1">
-            <h2 className="text-2xl font-extrabold md:text-3xl">Sua primeira missão já está esperando</h2>
-            <p className="mt-2 text-white/80">Crie sua conta e o Zefi separa uma missão pra você hoje.</p>
+            <h2 className="text-2xl font-extrabold md:text-3xl">
+              Sua primeira missão já está esperando
+            </h2>
+            <p className="mt-2 text-gray-700">
+              Crie sua conta e o Zefi separa uma missão pra você hoje.
+            </p>
           </div>
+
           <Link
             to="/cadastro"
-            className="rounded-xl bg-energia px-6 py-3 font-bold text-tinta transition-transform hover:scale-105"
+            className="rounded-xl bg-[#55BDF0] px-6 py-3 font-bold text-black transition-transform hover:scale-105"
           >
             Criar conta
           </Link>
         </div>
       </section>
+
     </>
   );
 }
