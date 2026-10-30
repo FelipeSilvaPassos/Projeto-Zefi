@@ -1,12 +1,19 @@
 
 import { useState, type FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { usuarioService } from '../services/usuarioService';
 import { useUsuario } from '../context/useUsuario';
 import { MensagemErro } from '../components/ui/Estados';
 
+interface EstadoNavegacao {
+  mensagem?: string;
+}
+
 export default function Login() {
   const navegar = useNavigate();
+  const location = useLocation();
+  const estado = location.state as EstadoNavegacao | null;
+
   const { entrar } = useUsuario();
 
   const [cpf, setCpf] = useState('');
@@ -71,6 +78,15 @@ export default function Login() {
           onSubmit={handleSubmit}
           className="space-y-5 rounded-2xl border border-[#DCEAF2] bg-white p-6 shadow-sm sm:p-8"
         >
+          {estado?.mensagem && (
+            <div
+              role="status"
+              className="rounded-xl border border-green-200 bg-green-50 p-3 text-sm text-green-800"
+            >
+              {estado.mensagem}
+            </div>
+          )}
+
           {erro && <MensagemErro mensagem={erro} />}
 
           <div>
