@@ -7,7 +7,6 @@ import RotaProtegida from './RotaProtegida';
 // Páginas principais
 import Home from '../pages/Home';
 import Missoes from '../pages/Missoes';
-import MissaoDetalhe from '../pages/MissaoDetalhe';
 import Chat from '../pages/Chat';
 import Login from '../pages/Login';
 import Cadastro from '../pages/Cadastro';
@@ -28,7 +27,6 @@ export default function AppRoutes() {
         {/* Páginas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/missoes" element={<Missoes />} />
-        <Route path="/missoes/:id" element={<MissaoDetalhe />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
