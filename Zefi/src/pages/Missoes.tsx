@@ -1,8 +1,8 @@
-
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { missaoService } from '../services/missaoService';
 import type { Missao } from '../types/missao';
 import type { Categoria } from '../types/categoria';
+
 import CardMissao from '../components/missoes/CardMissao';
 import FiltroMissoes from '../components/missoes/FiltroMissoes';
 import '../style/pages/Missoes.css';
@@ -10,6 +10,7 @@ import '../style/pages/Missoes.css';
 export default function Missoes() {
   const [missoes, setMissoes] = useState<Missao[]>([]);
   const [categoria, setCategoria] = useState<Categoria | ''>('');
+  const [busca, setBusca] = useState('');
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState('');
 
@@ -22,6 +23,7 @@ export default function Missoes() {
         const dados = await missaoService.listar(
           categoria === '' ? undefined : categoria
         );
+
         setMissoes(dados);
       } catch (error) {
         console.error('Erro ao carregar missões:', error);
@@ -34,21 +36,30 @@ export default function Missoes() {
     carregarMissoes();
   }, [categoria]);
 
+  const missoesFiltradas = useMemo(() => {
+    return missoes.filter((missao) =>
+      missao.nome.toLowerCase().includes(busca.trim().toLowerCase())
+    );
+  }, [missoes, busca]);
+
   return (
     <section className="pagina-missoes">
       <header className="pagina-missoes-cabecalho">
-        <div>
-          <h1 className="pagina-missoes-titulo">Missões do Zefi</h1>
-          <p className="pagina-missoes-subtitulo">
-            Escolha uma missão, cuide do planeta e ganhe Ecoa.
-          </p>
-        </div>
-
-        <FiltroMissoes
-          categoriaSelecionada={categoria}
-          onCategoriaChange={setCategoria}
-        />
+        <span className="pagina-missoes-selo">Missões</span>
+        <h1 className="pagina-missoes-titulo">
+          Missões do <span className="pagina-missoes-destaque">Zefi</span>
+        </h1>
+        <p className="pagina-missoes-subtitulo">
+          Escolha uma missão, cuide do planeta e ganhe Ecoa.
+        </p>
       </header>
+
+      <FiltroMissoes
+        categoriaSelecionada={categoria}
+        onCategoriaChange={setCategoria}
+        busca={busca}
+        onBuscaChange={setBusca}
+      />
 
       {carregando && (
         <p className="pagina-missoes-status">Carregando missões...</p>
@@ -61,11 +72,11 @@ export default function Missoes() {
       )}
 
       {!carregando && !erro && (
-        missoes.length === 0 ? (
+        missoesFiltradas.length === 0 ? (
           <p className="pagina-missoes-status">Nenhuma missão encontrada.</p>
         ) : (
           <div className="lista-missoes">
-            {missoes.map((missao) => (
+            {missoesFiltradas.map((missao) => (
               <CardMissao key={missao.id} missao={missao} />
             ))}
           </div>

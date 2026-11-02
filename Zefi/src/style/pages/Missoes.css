@@ -7,24 +7,43 @@
 
 .pagina-missoes-cabecalho {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-bottom: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.pagina-missoes-selo {
+  padding: 6px 14px;
+  background: var(--color-brisa);
+  color: var(--color-azul-escuro);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .pagina-missoes-titulo {
   margin: 0;
   color: var(--color-preto);
   font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1.2;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.pagina-missoes-destaque {
+  background: linear-gradient(90deg, var(--color-azul-escuro), var(--color-ceu));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .pagina-missoes-subtitulo {
-  margin: 8px 0 0;
+  margin: 0;
+  max-width: 560px;
   color: #64748B;
   font-size: 16px;
   line-height: 1.6;
@@ -58,6 +77,6 @@
   }
 
   .pagina-missoes-titulo {
-    font-size: 30px;
+    font-size: 32px;
   }
 }
