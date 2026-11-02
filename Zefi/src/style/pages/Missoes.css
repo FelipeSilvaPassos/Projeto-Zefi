@@ -1,0 +1,82 @@
+.pagina-missoes {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.pagina-missoes-cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.pagina-missoes-selo {
+  padding: 6px 14px;
+  background: var(--color-brisa);
+  color: var(--color-azul-escuro);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagina-missoes-titulo {
+  margin: 0;
+  color: var(--color-preto);
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.pagina-missoes-destaque {
+  background: linear-gradient(90deg, var(--color-azul-escuro), var(--color-ceu));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pagina-missoes-subtitulo {
+  margin: 0;
+  max-width: 560px;
+  color: #64748B;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.pagina-missoes-status {
+  padding: 32px;
+  background: var(--color-fundo);
+  border: 1px dashed var(--color-borda);
+  border-radius: var(--radius-lg);
+  color: #64748B;
+  text-align: center;
+}
+
+.pagina-missoes-status--erro {
+  background: #FEF2F2;
+  border-color: #FECACA;
+  color: #B91C1C;
+}
+
+.lista-missoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .pagina-missoes {
+    padding: 32px 16px 48px;
+  }
+
+  .pagina-missoes-titulo {
+    font-size: 32px;
+  }
+}
