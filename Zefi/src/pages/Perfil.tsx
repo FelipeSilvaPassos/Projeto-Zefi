@@ -4,6 +4,7 @@ import { useUsuario } from '../context/useUsuario';
 import { useRequisicao } from '../hooks/useRequisicao';
 import { Carregando, MensagemErro } from '../components/ui/Estados';
 import { estiloBotaoSecundario } from '../components/ui/estilos';
+import PainelConquistas from '../components/conquistas/PainelConquistas';
 import CatalogoRecompensas from '../components/perfil/CatalogoRecompensas';
 import BalaoFala from '../components/zefi/BalaoFala';
 import ZefiAvatar from '../components/zefi/ZefiAvatar';
@@ -116,6 +117,9 @@ function PerfilConteudo({ usuario }: { usuario: Usuario }) {
             )}
           </article>
         </div>
+
+        {/* Conquistas em níveis */}
+        <PainelConquistas usuario={usuario} />
 
         {/* Recompensas */}
         <CatalogoRecompensas
