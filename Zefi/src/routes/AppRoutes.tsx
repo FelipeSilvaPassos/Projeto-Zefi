@@ -5,7 +5,7 @@ import Layout from '../components/layout/Layout';
 import RotaProtegida from './RotaProtegida';
 
 // Páginas principais
-import Home from '../pages/Home';
+import Inicio from '../pages/Inicio';
 import Missoes from '../pages/Missoes';
 import Chat from '../pages/Chat';
 import Login from '../pages/Login';
@@ -26,7 +26,7 @@ export default function AppRoutes() {
     <Routes>
       <Route element={<Layout />}>
         {/* Páginas públicas */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Inicio />} />
         <Route path="/missoes" element={<Missoes />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
