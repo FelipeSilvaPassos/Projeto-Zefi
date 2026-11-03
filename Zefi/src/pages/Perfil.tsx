@@ -6,7 +6,7 @@ import { useRequisicao } from '../hooks/useRequisicao';
 import { Carregando, MensagemErro } from '../components/ui/Estados';
 import { estiloBotaoSecundario } from '../components/ui/estilos';
 import PainelConquistas from '../components/conquistas/PainelConquistas';
-import CatalogoRecompensas from '../components/perfil/CatalogoRecompensas';
+import ProximaRecompensa from '../components/recompensas/ProximaRecompensa';
 import CabecalhoPerfil from '../components/perfil/CabecalhoPerfil';
 import FormEditarPerfil from '../components/perfil/FormEditarPerfil';
 import { usePerfilSocial } from '../hooks/usePerfilSocial';
@@ -133,9 +133,8 @@ function PerfilConteudo({ usuario }: { usuario: Usuario }) {
         <PainelConquistas usuario={usuario} />
 
         {/* Recompensas */}
-        <CatalogoRecompensas
+        <ProximaRecompensa
           saldo={perfil.estado.status === 'sucesso' ? perfil.estado.dados.usuario.pontosAcumulados : usuario.pontosAcumulados}
-          aoResgatar={perfil.recarregar}
         />
 
         {/* Dados da conta */}
