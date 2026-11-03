@@ -7,6 +7,7 @@ import type { LinkMenu } from '../../types/navegacao';
 const LINKS: LinkMenu[] = [
   { rotulo: 'Início', caminho: '/' },
   { rotulo: 'Missões', caminho: '/missoes' },
+  { rotulo: 'Recompensas', caminho: '/recompensas' },
   { rotulo: 'Chat com o Zefi', caminho: '/chat' },
   { rotulo: 'Sobre', caminho: '/sobre' },
   { rotulo: 'FAQ', caminho: '/faq' },
