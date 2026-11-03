@@ -4,6 +4,7 @@ import { useUsuario } from '../context/useUsuario';
 import { useRequisicao } from '../hooks/useRequisicao';
 import { Carregando, MensagemErro } from '../components/ui/Estados';
 import { estiloBotaoSecundario } from '../components/ui/estilos';
+import CatalogoRecompensas from '../components/perfil/CatalogoRecompensas';
 import BalaoFala from '../components/zefi/BalaoFala';
 import ZefiAvatar from '../components/zefi/ZefiAvatar';
 import { rotuloCategoria } from '../types/categoria';
@@ -115,6 +116,12 @@ function PerfilConteudo({ usuario }: { usuario: Usuario }) {
             )}
           </article>
         </div>
+
+        {/* Recompensas */}
+        <CatalogoRecompensas
+          saldo={perfil.estado.status === 'sucesso' ? perfil.estado.dados.usuario.pontosAcumulados : usuario.pontosAcumulados}
+          aoResgatar={perfil.recarregar}
+        />
 
         {/* Dados da conta */}
         <article className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm">
