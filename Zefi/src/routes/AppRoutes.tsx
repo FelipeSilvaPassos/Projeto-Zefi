@@ -27,7 +27,6 @@ export default function AppRoutes() {
         {/* Páginas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/missoes" element={<Missoes />} />
-        <Route path="/chat" element={<Chat />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
 
@@ -39,6 +38,7 @@ export default function AppRoutes() {
 
         {/* Páginas protegidas */}
         <Route element={<RotaProtegida />}>
+          <Route path="/chat" element={<Chat />} />
           <Route path="/perfil" element={<Perfil />} />
         </Route>
 
