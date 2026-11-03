@@ -7,6 +7,7 @@ import { MensagemErro } from '../components/ui/Estados';
 
 interface EstadoNavegacao {
   mensagem?: string;
+  origem?: { pathname: string };
 }
 
 export default function Login() {
@@ -43,7 +44,7 @@ export default function Login() {
       const resposta = await usuarioService.login(cpfLimpo, senha);
 
       entrar(resposta);
-      navegar('/perfil');
+      navegar(estado?.origem?.pathname ?? '/', { replace: true });
     } catch (erroLogin) {
       setErro(
         erroLogin instanceof Error

@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usuarioService } from '../services/usuarioService';
 import { useUsuario } from '../context/useUsuario';
 import { useRequisicao } from '../hooks/useRequisicao';
 import { Carregando, MensagemErro } from '../components/ui/Estados';
 import { estiloBotaoSecundario } from '../components/ui/estilos';
-import CatalogoRecompensas from '../components/perfil/CatalogoRecompensas';
+import PainelConquistas from '../components/conquistas/PainelConquistas';
+import ProximaRecompensa from '../components/recompensas/ProximaRecompensa';
+import CabecalhoPerfil from '../components/perfil/CabecalhoPerfil';
+import FormEditarPerfil from '../components/perfil/FormEditarPerfil';
+import { usePerfilSocial } from '../hooks/usePerfilSocial';
 import BalaoFala from '../components/zefi/BalaoFala';
 import ZefiAvatar from '../components/zefi/ZefiAvatar';
 import { rotuloCategoria } from '../types/categoria';
@@ -34,6 +39,8 @@ function Dado({ rotulo, valor }: { rotulo: string; valor: string }) {
 function PerfilConteudo({ usuario }: { usuario: Usuario }) {
   const navegar = useNavigate();
   const { sair } = useUsuario();
+  const { perfil: social, salvar: salvarSocial } = usePerfilSocial(usuario.cpf);
+  const [editando, setEditando] = useState(false);
 
   const perfil = useRequisicao(() => usuarioService.perfil(usuario.cpf), [usuario.cpf]);
   const engajamento = useRequisicao(() => usuarioService.engajamento(usuario.cpf), [usuario.cpf]);
@@ -53,18 +60,23 @@ function PerfilConteudo({ usuario }: { usuario: Usuario }) {
   return (
     <section className="bg-[#F7FBFE] px-4 py-8 text-black">
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
-        <header className="flex flex-wrap items-center gap-6">
-          <ZefiAvatar tamanho="grande" nivel={nivel} />
+        {editando ? (
+          <FormEditarPerfil
+            usuario={usuario}
+            social={social}
+            aoSalvarSocial={salvarSocial}
+            aoFechar={() => setEditando(false)}
+          />
+        ) : (
+          <CabecalhoPerfil usuario={usuario} social={social} aoEditar={() => setEditando(true)} />
+        )}
 
-          <div className="flex min-w-0 flex-1 flex-col gap-4">
-            <div>
-              <h1 className="text-3xl font-extrabold tracking-tight">Olá, {usuario.nome.split(' ')[0]}!</h1>
-              <p className="text-gray-600">Veja como está a sua jornada sustentável.</p>
-            </div>
-
+        <div className="flex flex-wrap items-center gap-4">
+          <ZefiAvatar tamanho="medio" nivel={nivel} />
+          <div className="min-w-0 flex-1">
             {engajamento.estado.status === 'sucesso' && <BalaoFala texto={engajamento.estado.dados.mensagemZefi} />}
           </div>
-        </header>
+        </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Saldo de pontos */}
@@ -117,10 +129,12 @@ function PerfilConteudo({ usuario }: { usuario: Usuario }) {
           </article>
         </div>
 
+        {/* Conquistas em níveis */}
+        <PainelConquistas usuario={usuario} />
+
         {/* Recompensas */}
-        <CatalogoRecompensas
+        <ProximaRecompensa
           saldo={perfil.estado.status === 'sucesso' ? perfil.estado.dados.usuario.pontosAcumulados : usuario.pontosAcumulados}
-          aoResgatar={perfil.recarregar}
         />
 
         {/* Dados da conta */}
