@@ -65,11 +65,11 @@ Zefi/
 
 | Feed | Recompensas |
 |---|---|
-| ![Feed](Zefi/public/imgs-zefi/print_feed.png) | ![Recompensas](Zefi/public/imgs-zefi/print_recompensas.png) |
+| ![Feed](../Zefi/public/imgs-zefi/print_feed.png) | ![Recompensas](../Zefi/public/imgs-zefi/print_recompensas.png) |
 
 | Chat com o Zefi | Perfil |
 |---|---|
-| ![Chat](Zefi/public/imgs-zefi/uso_chat.png) | ![Engajamento](Zefi/public/imgs-zefi/uso_nivel_engajamento.png) |
+| ![Chat](../Zefi/public/imgs-zefi/print-chat-zefi.png) | 
 
 ## 🚀 Como usar
 
