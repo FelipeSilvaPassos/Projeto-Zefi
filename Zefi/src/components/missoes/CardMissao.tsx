@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import type { Missao } from '../../types/missao';
 import { rotuloCategoria } from '../../types/categoria';
 import ModalDetalhesMissao from './ModalDetalhesMissao';
@@ -39,6 +40,10 @@ export default function CardMissao({ missao }: CardMissaoProps) {
         >
           Saber mais...
         </button>
+
+        <Link to={`/missoes/${missao.id}`} className="card-missao-link">
+          Abrir página da missão
+        </Link>
       </article>
 
       {modalAberto && (
