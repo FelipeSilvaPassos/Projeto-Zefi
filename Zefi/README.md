@@ -79,7 +79,7 @@ Zefi/
 | 💻 Repositório do front-end (GitHub) | https://github.com/FelipeSilvaPassos/Projeto-Zefi |
 | 🔌 Repositório da API Java (GitHub) | https://github.com/FelipeSilvaPassos/projeto-zefi-api |
 | ☁️ API publicada (Render) | https://projeto-zefi-api.onrender.com |
-| 🎥 Vídeo de apresentação (YouTube) | **[PREENCHER: link do vídeo]** |
+| 🎥 Vídeo de apresentação (YouTube) | **[https://youtu.be/MZB_-c9E3Xo]** |
 
 > A API está no plano gratuito do Render: a primeira requisição pode levar até cerca de 50 segundos para "acordar".
 
